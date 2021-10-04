@@ -1,6 +1,7 @@
 # Running Project Teal Horse (A React App)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+0) Ensure that you have Node.js installed [Windows](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
 1) Clone Repository
 2) While in the downloaded Repository, run `npm install`
 3) Once the installation completes, you can run the app with  `npm start`
