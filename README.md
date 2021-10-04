@@ -1,6 +1,9 @@
 # Running Project Teal Horse (A React App)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Clone Repository
+2) While in the downloaded Repository, run `npm install`
+3) Once the installation completes, you can run the app with  `npm start`
 
 ## Available Scripts
 
