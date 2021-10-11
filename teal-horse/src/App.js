@@ -1,4 +1,5 @@
 import './App.css';
+import CodeTranslate from './CodeTranslate.js'
 import TealHorse from './images/TealHorse.png'
 
 function App() {
@@ -6,8 +7,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={TealHorse} className="App-logo" alt="logo"/>
-        Project Teal Horse
+        <h3>Project Teal Horse</h3>
       </header>
+      <CodeTranslate/>
     </div>
   );
 }
