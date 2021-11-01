@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-0) Ensure that you have Node.js installed [Windows](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
+0) Ensure that you have Node.js installed {[Windows](https://phoenixnap.com/kb/install-node-js-npm-on-windows), [MacOs](https://nodejs.org/en/download/)}
 1) Clone Repository
 2) While in the downloaded Repository, run `npm install`
 3) Once the installation completes, you can run the app with  `npm start`
