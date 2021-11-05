@@ -45,6 +45,11 @@
   height: 2000px;
 }
 
+.buttonsArea {
+  display: inline-block;
+  vertical-align: top;
+}
+
 .main textarea{
   margin:10px;
   resize: none;
