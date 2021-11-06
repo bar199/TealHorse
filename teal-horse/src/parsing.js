@@ -74,7 +74,9 @@ export const parserFunction = (xmlString) => {
   }
 
 const buildReactClass = (elements) => {
-    return `const OutPutClassFunction = () =>{
+    return `import {StyleSheet} from "react-native"
+    
+const OutPutClassFunction = () =>{
   return(
     <div>
       ${elements}
