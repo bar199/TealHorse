@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {parserFunction} from './parsing.js'
+import {parserFunction,sampleXML,translateFunction} from './parsing.js'
 
 
 function CodeTranslate(){
@@ -7,16 +7,17 @@ function CodeTranslate(){
   const [textInput, updateInput] = useState();
   const [textOutput, updateOutput] = useState();
   const handleClick = (e) => {
-    let temp = parserFunction(textInput);
-    updateOutput(temp);
+    let tempParse = parserFunction(textInput);
+    let tempTranslate = translateFunction(tempParse);
+    updateOutput(String(tempTranslate));
     //console.log(textOutput);
   }
   const handleInput = (e) => {
     updateInput(e.target.value)
   }
-  const handleClear = (e) => {
-    updateOutput(' ');
-    updateInput(' ');
+  const handleTest = (e) => {
+    console.log(sampleXML())
+    updateInput(sampleXML());
   }
 
   return(
@@ -28,8 +29,8 @@ function CodeTranslate(){
         <button onClick={handleClick}>
           Translate
         </button>
-        <button onClick={handleClear}>
-          Clear
+        <button onClick={handleTest}>
+          Test
         </button>
       </span>
       <textarea placeholder="React Native Code Output..." rows="35" cols="70" value={textOutput}>
