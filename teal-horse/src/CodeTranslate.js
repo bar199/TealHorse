@@ -22,10 +22,10 @@ function CodeTranslate(){
 
   return(
     <div className="main">
-      <textarea placeholder="Enter Android XML layout Code..." rows="35" cols="70" onChange={handleInput}/>
+      <textarea placeholder="Enter Android XML layout Code..." rows="35" cols="70" onChange={handleInput} spellCheck="false"/>
         <button onClick={handleClick}>Translate</button>
         {/* <button onClick={handleTest}>Test</button> */}
-      <textarea placeholder="React Native Code Output..." rows="35" cols="70" value={textOutput}/>
+      <textarea placeholder="React Native Code Output..." rows="35" cols="70" value={textOutput} spellCheck="false"/>
     </div>
   );
 }

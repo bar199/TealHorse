@@ -30,6 +30,7 @@ export const parserFunction = (xmlString) => {
 
   export const translateFunction = (elementArray) => {
     let juniorArray = []
+    let stylesArray = []
     var arraylength = elementArray.length
     const xmlToReact = new XMLToReact({
       Example: (attrs) => ({ type: 'ul', props: attrs }),
@@ -46,9 +47,17 @@ export const parserFunction = (xmlString) => {
         console.log(elementArray[i].localName)
         juniorArray.push(
         `
-        <${elementArray[i].localName}>
+        <${elementArray[i].localName} styles={styles.${elementArray[i].localName}}>
           Lorem ipsum dolor sit amet
         </${elementArray[i].localName}>
+        `
+        )
+        stylesArray.push(
+        `
+        ${elementArray[i].localName} : {
+          flex: 1,
+          alightItmes: 'center'
+        }
         `
         )
       }
@@ -56,13 +65,15 @@ export const parserFunction = (xmlString) => {
       <Example name="simple">
       </Example>
       `);
-      return buildReactClass(juniorArray.join(""))  
+      
+      let reactElements = buildReactClass(juniorArray.join(""))
+      let stylesOutput = buildReactStyles(stylesArray.join(""))  
+      return reactElements.concat("\n",stylesOutput)
       //return elementArray.join("\n\n");
     }
   }
 
 const buildReactClass = (elements) => {
-
     return `const OutPutClassFunction = () =>{
   return(
     <div>
@@ -71,7 +82,15 @@ const buildReactClass = (elements) => {
   )
 }
     `
-  }
+}
+
+const buildReactStyles = (styles) => {
+  return `\\\\React Native Styling
+cosnt styles = StyleSheet.create({
+  ${styles}
+})
+`
+}
 const myConverter = (attributes) => {
     return {
       type: 'div',
