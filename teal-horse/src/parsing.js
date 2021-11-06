@@ -29,6 +29,7 @@ export const parserFunction = (xmlString) => {
   }
 
   export const translateFunction = (elementArray) => {
+    let juniorArray = []
     var arraylength = elementArray.length
     const xmlToReact = new XMLToReact({
       Example: (attrs) => ({ type: 'ul', props: attrs }),
@@ -43,17 +44,35 @@ export const parserFunction = (xmlString) => {
     else{
       for(let i = 0; i<arraylength; i++){
         console.log(elementArray[i].localName)
+        juniorArray.push(
+        `
+        <${elementArray[i].localName}>
+          Lorem ipsum dolor sit amet
+        </${elementArray[i].localName}>
+        `
+        )
       }
       const reactTree = xmlToReact.convert(`
       <Example name="simple">
       </Example>
       `);
-      return reactTree     
-      //return elementArray.join("\r\n\n");
+      return buildReactClass(juniorArray.join(""))  
+      //return elementArray.join("\n\n");
     }
   }
 
-  function myConverter(attributes) {
+const buildReactClass = (elements) => {
+
+    return `const OutPutClassFunction = () =>{
+  return(
+    <div>
+      ${elements}
+    </div>
+  )
+}
+    `
+  }
+const myConverter = (attributes) => {
     return {
       type: 'div',
       props: {
